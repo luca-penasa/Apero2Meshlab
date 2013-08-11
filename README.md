@@ -8,10 +8,9 @@ And then also other changes to the micmac code are needed in order to work!
 I provide a bash script for applying the patch and copying the files.
 
 Run it as:
-
-	```bash
-	./intall_patch.sh path/to/micmac_source [-r]
-	```
+```bash
+./intall_patch.sh path/to/micmac_source [-r]
+```
 
 where:	
 
