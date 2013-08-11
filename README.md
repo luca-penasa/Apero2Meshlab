@@ -11,10 +11,10 @@ Run it as:
 
 	```bash
 	./intall_patch.sh path/to/micmac_source [-r]
-
 	```
 
 where:	
+
 	-r undo the changes
 
 
