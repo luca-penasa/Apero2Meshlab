@@ -27,5 +27,28 @@ When patched and compiled you will have a mm3d Apero2Meshlab tool that provides 
 
 Both of them does _NOT_ provide exact exports. Both are approximated in some way.
 
+Extended Install Info
+---------------------
 
- 
+First of all. Are you compilig micmac/culture3d by yourself? 
+If not do that and come back later. This is a source patch that need to be compiled together with the rest of micmac. 
+You can't use it on pre-compiled binaries.
+
+So for installing you can do this way, open a bash console and:
+```bash
+cd /home/tizio/code #or where your use to place you code stuff
+git clone https://github.com/luca-penasa/Apero2Meshlab.git Apero2Meshlab #this will download the whole source in the /home/tizio/code/Apero2Meshlab folder
+```
+
+Then simply execute the commands as above:
+```bash
+./intall_patch.sh path/to/micmac_source /home/tizio/code/culture3d # where culture3d is the path to the mimac sources
+```
+
+This should install the patch.
+
+If you want to do it by hand you can install the two cpp files in the right folder, then look at:
+https://github.com/luca-penasa/Apero2Meshlab/blob/master/patchset.patch
+and perform the required changes.
+
+Let me know if the process is not working (recent changes to micmac source could have invalidated the patch)
