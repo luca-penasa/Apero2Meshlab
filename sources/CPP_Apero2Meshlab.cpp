@@ -296,6 +296,7 @@ void Apero2Meshlab(string aFullPattern, string aOri, int aUnDist)
 
       ElCamera * aCam = Cam_Gen_From_File(aNameCam, "OrientationConique" , anICNM);
 
+
       ElMatrix<double> Rot(3,3,0.0);
       ElMatrix<double> RotX(3,3,0.0);
 
@@ -311,15 +312,22 @@ void Apero2Meshlab(string aFullPattern, string aOri, int aUnDist)
       Pt3d<double> Trans;
       Trans= -aCS->OrigineProf();
 
+      //Loading EXIF data, to get FocMm and Calculate PixelSizeMm
+      cMetaDataPhoto aMetaData = cMetaDataPhoto::CreateExiv2(aFullName);
+      double rap35MmThisFrame = aMetaData.Foc35()/aMetaData.FocMm();
+      double PxSize35Mm = euclid(Pt2di(24,36))/euclid(aMetaData.TifSzIm());
+      double PxSizeMm = PxSize35Mm / rap35MmThisFrame;
+
+
       //the focal
-      double focal = aCS->Focale() ;
+      double focal = aCS->Focale()*PxSizeMm;
 
       //and the other internal parameters
       Pt2d<double> distortions, pixelsize, principal_point;
       Pt2di viewport;
       viewport = aCS->Sz();
 
-      pixelsize.x = 1.0; pixelsize.y = 1.0; //we keep as 1 the pixelsize, always
+      pixelsize.x = PxSizeMm; pixelsize.y = PxSizeMm;
 
       if (aUnDist)
         {
@@ -354,10 +362,6 @@ void Apero2Meshlab(string aFullPattern, string aOri, int aUnDist)
           principal_point = cal_xml.PP();
 
           //BUT it seems that is causing problems when importing in meshlab.
-          // this probably depends upon the fact we are using the focal in pixel
-          // when meshlab would require it in mm.
-          // I dont know how to retrieve this measure from micmac, so for now we
-          // approximate to the center of the image.
 
           principal_point = viewport / 2.0;
 
@@ -417,7 +421,7 @@ int Apero2Meshlab_main(int argc,char ** argv)
 
   //Reading the arguments
   string aFullPattern,aOri;
-  int aUnDist = 0;
+  bool aUnDist = false;
 
   ElInitArgMain
       (

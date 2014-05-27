@@ -42,7 +42,11 @@ cd /home/tizio/code #or where your use to place you code stuff
 git clone https://github.com/luca-penasa/Apero2Meshlab.git Apero2Meshlab #this will download the whole source in the /home/tizio/code/Apero2Meshlab folder
 ```
 
-Then simply execute the commands as described above.
+Then simply execute the commands as above:
+```bash
+./intall_patch.sh path/to/micmac_source /home/tizio/code/culture3d # where culture3d is the path to the mimac sources
+```
+
 This should install the patch.
 
 If you want to do it by hand you can install the two cpp files in the right folder, then look at:
