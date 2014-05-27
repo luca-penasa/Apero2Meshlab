@@ -45,13 +45,13 @@ Header-MicMac-eLiSe-25/06/2007*/
 #include <algorithm>
 
 
-void Apero2MeshlabRast_Banniere()
+void Apero2Meshlab_Banniere()
 {
   std::cout << "\n  *************************************************\n";
   std::cout << "  **                                             **\n";
   std::cout << "  **                   Apero                     **\n";
   std::cout << "  **                     2                       **\n";
-  std::cout << "  **                 MeshlabRast                 **\n";
+  std::cout << "  **                 Meshlab                     **\n";
   std::cout << "  **                                             **\n";
   std::cout << "  *************************************************\n";
 }
@@ -218,7 +218,7 @@ private:
 
 };
 
-void Apero2MeshlabRast(string aFullPattern, string aOri, int aUnDist)
+void Apero2Meshlab(string aFullPattern, string aOri, int aUnDist)
 {
   string aPattern,aNameDir;
   SplitDirAndFile(aNameDir,aPattern,aFullPattern);
@@ -407,11 +407,11 @@ void Apero2MeshlabRast(string aFullPattern, string aOri, int aUnDist)
     }
 
 
-  Apero2MeshlabRast_Banniere();
+  Apero2Meshlab_Banniere();
 }
 
 
-int Apero2MeshlabRast_main(int argc,char ** argv)
+int Apero2Meshlab_main(int argc,char ** argv)
 {
   MMD_InitArgcArgv(argc,argv);
 
@@ -427,7 +427,7 @@ int Apero2MeshlabRast_main(int argc,char ** argv)
         LArgMain() << EAM(aUnDist,"UnDist", true, "Undistort images using Drunk")
         );
 
-  Apero2MeshlabRast(aFullPattern, aOri, aUnDist);
+  Apero2Meshlab(aFullPattern, aOri, aUnDist);
 
   return EXIT_SUCCESS;
 }
