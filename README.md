@@ -21,12 +21,11 @@ hg update --clean
 rm Apero2Meshlab.c  CPP_Apero2Meshlab.cpp
 ```
 
-If you have done it with a new commit, refer to mercurial documentation on how to remove a commmit.
+If you have done it with a new commit, refer to mercurial documentation on how to remove a commit.
 
 
 Using
 -----
-
 When patched and compiled you will have a mm3d Apero2Meshlab tool that provides two methods for exporting to meshlab:
 1. undistort images with drunk and write out a mlp file with the cameras in it
 2. keep the images as they are and write the mlp file using the first two distortions coefficients of the camera only.
@@ -35,7 +34,6 @@ Both of them does _NOT_ provide exact exports. Both are approximated in some way
 
 Extended Install Info
 ---------------------
-
 First of all. Are you compilig micmac/culture3d by yourself? 
 If not do that and come back later. This is a source patch that need to be compiled together with the rest of micmac. 
 You can't use it on pre-compiled binaries.
