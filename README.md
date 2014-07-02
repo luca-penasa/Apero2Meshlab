@@ -5,23 +5,27 @@ You may need to checkout the latest revision of culture3d for this procedure to 
 
 Apero2Meshlab is a micmac patch that adds the possibility to export the Apero orientations of cameras to a meshlab mlp file that can be loaded by Meshlab.
 
-Code file CPP_Apero2Meshlab.cpp should be placed in the src/uti_files/ dir of micmac. 
-Also Apero2Meshlab.c should be copied in the right place.
-And then also other changes to the micmac code are needed in order to work!
-
+Applying the patch
+------------------
 For applying the changes just go to your micmac source dir and do the following
+```bash
 hg import --no-commit /path/to/Apero2Meshlab/changeset.hgdiff
+```
 
 note that this will NOT introduce a new commit into your repo. if you want it do it without --no-commit
 
-for cleaning your repo, if you dont have made a commit:
-
+for cleaning your repo (removing the patch), if you dont have made a commit it is easy:
+```bash
 cd path/to/culture3d/
 hg update --clean
 rm Apero2Meshlab.c  CPP_Apero2Meshlab.cpp
+```
+
+If you have done it with a new commit, refer to mercurial documentation on how to remove a commmit.
 
 
-If you need support please contact me
+Using
+-----
 
 When patched and compiled you will have a mm3d Apero2Meshlab tool that provides two methods for exporting to meshlab:
 1. undistort images with drunk and write out a mlp file with the cameras in it
@@ -44,13 +48,9 @@ git clone https://github.com/luca-penasa/Apero2Meshlab.git Apero2Meshlab #this w
 
 Then simply execute the commands as above:
 ```bash
-./intall_patch.sh path/to/micmac_source /home/tizio/code/culture3d # where culture3d is the path to the mimac sources
+hg import --no-commit /path/to/Apero2Meshlab/changeset.hgdiff
 ```
 
 This should install the patch.
-
-If you want to do it by hand you can install the two cpp files in the right folder, then look at:
-https://github.com/luca-penasa/Apero2Meshlab/blob/master/patchset.patch
-and perform the required changes.
 
 Let me know if the process is not working (recent changes to micmac source could have invalidated the patch)
