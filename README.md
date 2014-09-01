@@ -1,3 +1,6 @@
+## **Important Warning: thanks to the culture3d developers, Apero2Meshlab is now part of the official culture3d (micmac) repo thus there is not need to use this patch anymore! Just go and checkout a recent snapshot of the mercurial repo.**
+
+
 Apero2Meshlab
 =============
 
@@ -27,6 +30,7 @@ If you have done it with a new commit, refer to mercurial documentation on how t
 Using
 -----
 When patched and compiled you will have a mm3d Apero2Meshlab tool that provides two methods for exporting to meshlab:
+
 1. undistort images with drunk and write out a mlp file with the cameras in it
 2. keep the images as they are and write the mlp file using the first two distortions coefficients of the camera only.
 
